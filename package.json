@@ -2,7 +2,7 @@
   "name": "@ntheanh201/nestjs-sequelize-pagination",
   "version": "1.0.0",
   "description": "NestJS Sequelize Pagination",
-  "author": "The Anh Nguyen <ntheanh201@gmail.com>",
+  "author": "The Anh Nguyen <anhntdev0@gmail.com>",
   "license": "MIT",
   "readmeFilename": "README.md",
   "main": "dist/index.js",
