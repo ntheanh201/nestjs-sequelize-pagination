@@ -1,8 +1,9 @@
 <h1 align="center">
 </h1>
-<h3 align="center">
+<div align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-  
+</div>
+<h3 align="center"> 
   NestJS Sequelize Pagination
 </h3>
 
