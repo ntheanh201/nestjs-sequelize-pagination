@@ -14,15 +14,13 @@ export const Pagination = createParamDecorator(
         ? parseInt(request.query.limit)
         : data?.limit || undefined,
       page: request.query.page ? parseInt(request.query.page) : data?.page || 0,
-      orderBy: {
-        key: request.query.sortBy || data?.orderBy?.key,
-        direction: request.query.sortDirection || data?.orderBy?.key,
-      },
+      orderDirection: request.query.orderDirection || data.orderDirection || null,
+      orderBy: request.query.orderBy || data.orderBy || null,
       searchKey: request.query.searchKey || null,
     };
   },
   [
-    (target: any, key: string | symbol) => {
+    (target: any, key: string) => {
       const Swagger = loadPackage(
         '@nestjs/swagger',
         'PaginationDecorator',
@@ -34,7 +32,7 @@ export const Pagination = createParamDecorator(
           name: 'page',
           schema: {
             type: 'number',
-            description: 'The page to start pagination, zero-based indexing',
+            description: 'The page to start pagination, one-based indexing',
           },
           required: false,
         })(target, key, Object.getOwnPropertyDescriptor(target, key));
@@ -47,7 +45,7 @@ export const Pagination = createParamDecorator(
           required: false,
         })(target, key, Object.getOwnPropertyDescriptor(target, key));
         Swagger.ApiQuery({
-          name: 'sortBy',
+          name: 'orderBy',
           schema: {
             type: 'string',
             description: 'The OrderBy key',
@@ -55,7 +53,7 @@ export const Pagination = createParamDecorator(
           required: false,
         })(target, key, Object.getOwnPropertyDescriptor(target, key));
         Swagger.ApiQuery({
-          name: 'sortDirection',
+          name: 'orderDirection',
           schema: {
             type: 'string',
             description: 'The OrderBy direction',

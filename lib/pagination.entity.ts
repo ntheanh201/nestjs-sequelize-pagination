@@ -1,14 +1,6 @@
 import { IsNumber, IsOptional, IsString } from 'class-validator';
 import { Model, ModelStatic } from 'sequelize-typescript';
 
-export class OrderBy {
-  @IsString()
-  key: string;
-
-  @IsString()
-  direction: string; // Sequelize valid directions: ASC, DESC, NULLS FIRST, ...
-}
-
 export class PaginationQuery {
   @IsOptional()
   @IsNumber()
@@ -19,7 +11,12 @@ export class PaginationQuery {
   page?: number;
 
   @IsOptional()
-  orderBy?: OrderBy;
+  @IsString()
+  orderBy?: string;
+
+  @IsOptional()
+  @IsString()
+  orderDirection?: string; // Sequelize valid directions: ASC, DESC, NULLS FIRST, ...
 
   @IsOptional()
   @IsString()

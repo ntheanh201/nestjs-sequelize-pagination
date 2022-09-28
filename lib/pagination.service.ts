@@ -33,13 +33,17 @@ export class PaginationService {
     let page = options.page || this.defaultOptions.page;
     page = page ? page - 1 : 0;
 
-    const orderBy = options.orderBy || this.defaultOptions.orderBy;
+    const orderBy = options.orderBy || undefined;
+
+    const orderDirection =
+      options.orderDirection || this.defaultOptions.orderDirection || undefined;
+
     const offset = page * options.limit || page * options.limit;
 
     const queryOptions: FindAndCountOptions = {
       limit,
       offset,
-      order: [[orderBy.key, orderBy.direction]],
+      order: orderBy ? [[orderBy, orderDirection]] : undefined,
       ...optionsSequelize,
     };
 
@@ -52,7 +56,7 @@ export class PaginationService {
       total: response.count,
       totalPages: Math.ceil(response.count / options.limit),
       limit: options.limit,
-      page: options.page,
+      page: options.page ? options.page : 1,
     };
   }
 }

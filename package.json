@@ -1,6 +1,6 @@
 {
   "name": "@ntheanh201/nestjs-sequelize-pagination",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "NestJS Sequelize Pagination",
   "author": "The Anh Nguyen <anhntdev0@gmail.com>",
   "license": "MIT",
@@ -22,20 +22,23 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "keywords": [
-    "nestjs"
+    "nestjs  sequelize  pagination  ntheanh201"
   ],
   "publishConfig": {
     "access": "public"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ntheanh201/nestjs-package-starter"
+    "url": "https://github.com/ntheanh201/nestjs-sequelize-pagination"
   },
-  "bugs": "https://github.com/ntheanh201/nestjs-package-starter",
+  "bugs": "https://github.com/ntheanh201/nestjs-sequelize-pagination",
   "peerDependencies": {
     "@nestjs/common": "^9.1.2"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@nestjs/swagger": "^6.1.2",
+    "reflect-metadata": "^0.1.13"
+  },
   "devDependencies": {
     "@nestjs/common": "^9.1.2",
     "@nestjs/core": "^9.1.2",
