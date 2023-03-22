@@ -17,10 +17,10 @@ export class PaginationService {
     private defaultOptions: PaginationQuery,
   ) {}
 
-  async findAll(
+  async findAll<T>(
     options: PaginationOption,
     optionsSequelize: FindAndCountOptions,
-  ): Promise<PaginationResponse<any>> {
+  ): Promise<PaginationResponse<T>> {
     const repository: ModelStatic<Model<any, any>> = this.moduleRef.get(
       getModelToken(options.model),
       {
@@ -52,7 +52,7 @@ export class PaginationService {
     });
 
     return {
-      data: response.rows,
+      data: response.rows as T[],
       total: response.count,
       totalPages: Math.ceil(response.count / options.limit),
       limit: options.limit,

@@ -31,4 +31,6 @@ export interface PaginationResponse<T> extends PaginationQuery {
   data: T[];
   total: number;
   totalPages: number;
+  page: number;
+  limit: number;
 }
