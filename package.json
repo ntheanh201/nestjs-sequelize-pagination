@@ -11,8 +11,8 @@
     "*.md"
   ],
   "scripts": {
-    "start:dev": "tsc -w",
-    "build": "tsc",
+    "start:dev": "node init && tsc -w",
+    "build": "node init && tsc",
     "prepare": "npm run build",
     "format": "prettier --write \"lib/**/*.ts\"",
     "lint": "tslint -p tsconfig.json -c tslint.json",
